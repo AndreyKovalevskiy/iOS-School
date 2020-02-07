@@ -1,35 +1,26 @@
-var inputData: [Int] = [1, 2, 4, 1]
+var inputData: [Int] = [1, 3, 9, 5, 1]
 
 /// The mean for an array of integers
-/// - Parameter inputData:The array of integers with an amount greater than 2
-/// - Returns: The mean; otherwise, nil.
+/// - Parameter inputData: The array of integers.
+/// - Returns: The mean. If the array is empty - nil.
 func mean(for inputData: [Int]) -> Double? {
-    if inputData.count < 2 { return nil }
+    if inputData.isEmpty { return nil }
     var sum = 0
-    let count = inputData.count
     for element in inputData {
         sum += element
     }
-    let mean = Double(sum) / Double(count)
+    let mean = Double(sum) / Double(inputData.count)
     return mean
 }
 
 /// The median for an array of integers
-/// - Parameter inputData: The array of integers with an amount greater than 2
-/// - Returns: The median; otherwise, nil.
+/// - Parameter inputData: The array of integers.
+/// - Returns: The median. If the array is empty - nil.
 func median(for inputData: [Int]) -> Double? {
-    if inputData.count < 2 { return nil }
+    if inputData.isEmpty { return nil }
     var array = inputData
     var median: Double?
-    for j in 1..<array.count {
-        let key = array[j]
-        var i = j - 1
-        while i >= 0 && array[i] > key {
-            array[i + 1] = array[i]
-            i -= 1
-        }
-        array[i + 1] = key
-    }
+    array.sort(by: < )
     if array.count.isMultiple(of: 2) {
         let firstIndex = array.count / 2
         let secondIndex = (array.count / 2) - 1
@@ -42,8 +33,8 @@ func median(for inputData: [Int]) -> Double? {
 }
 
 /// The moda for an array of integers
-/// - Parameter inputData: The array of integers with an amount greater than 2
-/// - Returns: The moda; otherwise, nil.
+/// - Parameter inputData: The array of integers.
+/// - Returns: The moda. If the number of elements in the array is less than 2 or if the mode is absent - nil.
 func moda(for inputData: [Int]) -> [Int]? {
     if inputData.count < 2 { return nil }
     var dictionary: [Int:Int] = [:]
