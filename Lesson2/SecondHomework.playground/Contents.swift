@@ -2,11 +2,9 @@
 class Stack {
     private var array: [Int] = [] {
         didSet {
-            topElement = array.last
             minimalValue = array.min()
         }
     }
-    private var topElement: Int?
     private var minimalValue: Int?
     
     func push(element: Int) {
@@ -23,7 +21,7 @@ class Stack {
     }
     
     func top() -> Int? {
-        return topElement
+        return array.last
     }
     
     func min() -> Int? {
