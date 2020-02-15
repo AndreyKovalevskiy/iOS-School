@@ -1,11 +1,6 @@
 /// An object, which is a list of elements with a type integer, organized according to the LIFO principle.
 class Stack {
-    private var array: [Int] = [] {
-        didSet {
-            minimalValue = array.min()
-        }
-    }
-    private var minimalValue: Int?
+    private var array: [Int] = []
     
     func push(element: Int) {
         array.append(element)
@@ -15,23 +10,37 @@ class Stack {
         if array.isEmpty {
             return nil
         } else {
-            let lastElement = array.removeLast()
-            return lastElement
+            return array.removeLast()
         }
     }
     
     func top() -> Int? {
         return array.last
     }
-    
-    func min() -> Int? {
-        return minimalValue
-    }
 }
 
 /// An object, which is a list of elements with a type integer, organized according to the LIFO principle.
 class StackStatistics: Stack {
+    private var minimalValues: [Int] = []
+    
+    override func push(element: Int) {
+        if minimalValues.isEmpty || element < minimalValues.last! {
+            minimalValues.append(element)
+        } else {
+            minimalValues.append(minimalValues.last!)
+        }
+        super.push(element: element)
+    }
+    
+    override func pop() -> Int? {
+        if !minimalValues.isEmpty {
+            minimalValues.removeLast()
+        }
+        return super.pop()
+        
+    }
+    
     func minimumElement() -> Int? {
-        return super.min()
+        return minimalValues.last
     }
 }
