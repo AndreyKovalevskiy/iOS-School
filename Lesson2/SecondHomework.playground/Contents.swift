@@ -56,7 +56,7 @@ class StackStatistics<T: Comparable>: Stack<T> {
         
     }
     
-    /// Returns the last minimum element in the stack. Returns nil when the invoking stack is empty.
+    /// Returns the minimum element in the stack. Returns nil when the invoking stack is empty.
     /// - Complexity: O(1)
     /// - Returns: The last minimum element of the stack or nil.
     func minimumElement() -> T? {
