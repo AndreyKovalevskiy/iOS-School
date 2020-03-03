@@ -53,7 +53,6 @@ class StackStatistics<T: Comparable>: Stack<T> {
             minimalValues.removeLast()
         }
         return super.pop()
-        
     }
     
     /// Returns the minimum element in the stack. Returns nil when the invoking stack is empty.
