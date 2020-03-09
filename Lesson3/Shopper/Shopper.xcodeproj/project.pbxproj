@@ -14,7 +14,8 @@
 		5562D73C240A4BD4007A5781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5562D73A240A4BD4007A5781 /* LaunchScreen.storyboard */; };
 		5562D744240A520B007A5781 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562D743240A520B007A5781 /* ShoppingListTableViewController.swift */; };
 		5562D746240A56A8007A5781 /* ShoppingListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562D745240A56A8007A5781 /* ShoppingListProtocol.swift */; };
-		55CD76F2240BF24B00444F89 /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD76F1240BF24B00444F89 /* ShoppingModel.swift */; };
+		55926B4F241669BB009CABAB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55926B4E241669BB009CABAB /* ProductViewController.swift */; };
+		55CD76F2240BF24B00444F89 /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD76F1240BF24B00444F89 /* Shopping.swift */; };
 		55CD76F4240BFE3300444F89 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD76F3240BFE3300444F89 /* ShoppingListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +29,8 @@
 		5562D73D240A4BD4007A5781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5562D743240A520B007A5781 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		5562D745240A56A8007A5781 /* ShoppingListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListProtocol.swift; sourceTree = "<group>"; };
-		55CD76F1240BF24B00444F89 /* ShoppingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
+		55926B4E241669BB009CABAB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		55CD76F1240BF24B00444F89 /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		55CD76F3240BFE3300444F89 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +78,7 @@
 		55CD76F5240C204700444F89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55CD76F1240BF24B00444F89 /* ShoppingModel.swift */,
+				55CD76F1240BF24B00444F89 /* Shopping.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +96,7 @@
 		55CD76F7240C20C900444F89 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				55926B4E241669BB009CABAB /* ProductViewController.swift */,
 				5562D743240A520B007A5781 /* ShoppingListTableViewController.swift */,
 			);
 			path = Controller;
@@ -190,9 +193,10 @@
 				5562D730240A4BD3007A5781 /* AppDelegate.swift in Sources */,
 				5562D732240A4BD3007A5781 /* SceneDelegate.swift in Sources */,
 				5562D744240A520B007A5781 /* ShoppingListTableViewController.swift in Sources */,
+				55926B4F241669BB009CABAB /* ProductViewController.swift in Sources */,
 				55CD76F4240BFE3300444F89 /* ShoppingListTableViewCell.swift in Sources */,
 				5562D746240A56A8007A5781 /* ShoppingListProtocol.swift in Sources */,
-				55CD76F2240BF24B00444F89 /* ShoppingModel.swift in Sources */,
+				55CD76F2240BF24B00444F89 /* Shopping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +343,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LHZHKM226;
 				INFOPLIST_FILE = Shopper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -357,6 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LHZHKM226;
 				INFOPLIST_FILE = Shopper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

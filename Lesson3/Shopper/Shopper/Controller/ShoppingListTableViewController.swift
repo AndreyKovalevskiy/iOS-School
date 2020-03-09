@@ -7,7 +7,22 @@ class ShoppingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
     }
+    
+    @IBAction func unwindToShoppingList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ProductViewController, let product = sourceViewController.product {
+            
+            let newIndexPath = IndexPath(row: shopping.shoppingList.count, section: 0)
+            
+            if shopping.add(product) {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+}
+
+extension ShoppingListTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -17,45 +32,25 @@ class ShoppingListTableViewController: UITableViewController {
         return shopping.shoppingList.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! ShoppingListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as? ShoppingListTableViewCell
+            else {
+                fatalError("The dequeued cell is not an instance of ShoppingListTableViewCell.")
+        }
+        
         cell.nameLabel.text = shopping.shoppingList[indexPath.row]
         return cell
     }
     
-    @IBAction func addProduct(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Product addition", message: "Enter product name", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            if let text = alert.textFields?.first?.text {
-                if self.shopping.add(text) {
-                    self.tableView.reloadData()
-                }
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
-    @IBAction func removeProduct(_ sender: UIBarButtonItem) {
-        guard self.tableView.numberOfRows(inSection: 0) > 0 else { return }
-        
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            if self.shopping.remove(at: indexPath.row) {
-                self.tableView.reloadData()
-                return
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if shopping.remove(at: indexPath.row) {
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
-        
-        let alert = UIAlertController(title: "Product removal", message: "Enter product name", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            if let text = alert.textFields?.first?.text {
-                if self.shopping.remove(text) {
-                    self.tableView.reloadData()
-                }
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
 }

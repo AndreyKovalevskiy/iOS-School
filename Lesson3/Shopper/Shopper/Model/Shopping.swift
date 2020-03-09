@@ -1,7 +1,7 @@
 import Foundation
 
 class Shopping: ShoppingList {
-    var shoppingList: [String] = []
+    private(set) var shoppingList: [String] = []
     
     func add(_ item: String) -> Bool {
         if shoppingList.count == 10 {
@@ -13,8 +13,8 @@ class Shopping: ShoppingList {
     }
     
     func remove(_ item: String) -> Bool {
-        if shoppingList.contains(item) {
-            shoppingList.removeAll(where:{ item == $0 })
+        if let lastIndex = shoppingList.lastIndex(of: item) {
+            shoppingList.remove(at: lastIndex)
             return true
         } else {
             return false
@@ -22,7 +22,7 @@ class Shopping: ShoppingList {
     }
     
     func remove(at index: Int) -> Bool {
-        if index < shoppingList.count {
+        if shoppingList.indices.contains(index) {
             shoppingList.remove(at: index)
             return true
         } else {
