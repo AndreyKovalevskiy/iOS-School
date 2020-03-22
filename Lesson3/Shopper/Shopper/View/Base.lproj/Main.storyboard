@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Shopping List" id="TnO-DM-yeg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3R8-OU-U3W">
                             <connections>
-                                <segue destination="RqY-fA-Zqc" kind="presentation" identifier="AddItem" modalPresentationStyle="fullScreen" id="GkG-kU-PdU"/>
+                                <segue destination="RqY-fA-Zqc" kind="presentation" identifier="addItem" modalPresentationStyle="fullScreen" id="GkG-kU-PdU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

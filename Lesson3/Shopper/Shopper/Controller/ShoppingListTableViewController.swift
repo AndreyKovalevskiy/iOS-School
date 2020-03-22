@@ -10,6 +10,21 @@ class ShoppingListTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem" {
+            if tableView.numberOfRows(inSection: 0) < shopping.maxNumberOfProducts {
+                guard let productVC = segue.destination as? ProductViewController else { return }
+                present(productVC, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Сan't add a product",
+                                              message: "You can add no more than \(shopping.maxNumberOfProducts) products",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     @IBAction func unwindToShoppingList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ProductViewController, let product = sourceViewController.product {
             
