@@ -3,6 +3,8 @@ import Foundation
 protocol ShoppingList {
     /// Stores items to shop
     var shoppingList: [String] { get }
+    /// Maximum number of items that can be stored in the list.
+    var maximumNumberOfItems: Int { get }
     
     /**
      Adds the item in the end of the list.
@@ -11,14 +13,6 @@ protocol ShoppingList {
      - Returns: `true` if the `item` was added into a `shoppingList`, otherwise `false`.
      */
     func add(_ item: String) -> Bool
-    
-    /**
-     Removes the item from the list.
-     
-     - Parameter item: Item to remove from a `shoppingList`.
-     - Returns: `true` if the `item` was removed from a `shoppingList`, otherwise `false`.
-     */
-    func remove(_ item: String) -> Bool
     
     /**
      Removes the item at specified index from the list.

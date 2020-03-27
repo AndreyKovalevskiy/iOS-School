@@ -2,10 +2,10 @@ import Foundation
 
 class Shopping: ShoppingList {
     private(set) var shoppingList: [String] = []
-    let maxNumberOfProducts = 10
+    let maximumNumberOfItems = 10
     
     func add(_ item: String) -> Bool {
-        guard shoppingList.count < maxNumberOfProducts else {
+        guard shoppingList.count < maximumNumberOfItems else {
             return false
         }
         

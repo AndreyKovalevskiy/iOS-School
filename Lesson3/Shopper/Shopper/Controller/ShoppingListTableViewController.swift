@@ -12,12 +12,12 @@ class ShoppingListTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addItem" {
-            if tableView.numberOfRows(inSection: 0) < shopping.maxNumberOfProducts {
+            if shopping.shoppingList.count < shopping.maximumNumberOfItems {
                 guard let productVC = segue.destination as? ProductViewController else { return }
                 present(productVC, animated: true)
             } else {
                 let alert = UIAlertController(title: "Сan't add a product",
-                                              message: "You can add no more than \(shopping.maxNumberOfProducts) products",
+                                              message: "You can add no more than \(shopping.maximumNumberOfItems) products",
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 present(alert, animated: true, completion: nil)
