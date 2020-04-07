@@ -86,9 +86,8 @@
 				55CD76F6240C208900444F89 /* View */,
 				55CD76F7240C20C900444F89 /* Controller */,
 				55CD76F8240C22C700444F89 /* Protocol */,
-				55CD76F9240C230200444F89 /* SupportingFiles */,
 				551B47BA243CCE2F008239EB /* Resource */,
-				5562D73D240A4BD4007A5781 /* Info.plist */,
+				55CD76F9240C230200444F89 /* Supporting */,
 			);
 			path = Shopper;
 			sourceTree = "<group>";
@@ -128,11 +127,12 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		55CD76F9240C230200444F89 /* SupportingFiles */ = {
+		55CD76F9240C230200444F89 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				5562D73D240A4BD4007A5781 /* Info.plist */,
 			);
-			path = SupportingFiles;
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LHZHKM226;
-				INFOPLIST_FILE = Shopper/Info.plist;
+				INFOPLIST_FILE = Shopper/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LHZHKM226;
-				INFOPLIST_FILE = Shopper/Info.plist;
+				INFOPLIST_FILE = Shopper/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
