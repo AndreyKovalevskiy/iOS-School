@@ -13,6 +13,7 @@ class ProductViewController: UIViewController {
         nameProduct.delegate = self
         
         updateSaveButtonState()
+        nameProduct.addTarget(self, action: #selector(textfieldChanged), for: .editingChanged)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,7 +43,7 @@ extension ProductViewController: UITextFieldDelegate {
         saveButton.isEnabled = false
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc private func textfieldChanged() {
         updateSaveButtonState()
     }
 }
