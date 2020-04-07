@@ -53,6 +53,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		551B47BB243CD003008239EB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5562D72F240A4BD3007A5781 /* AppDelegate.swift */,
+				5562D731240A4BD3007A5781 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		5562D723240A4BD3007A5781 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +81,7 @@
 		5562D72E240A4BD3007A5781 /* Shopper */ = {
 			isa = PBXGroup;
 			children = (
+				551B47BB243CD003008239EB /* Application */,
 				55CD76F5240C204700444F89 /* Model */,
 				55CD76F6240C208900444F89 /* View */,
 				55CD76F7240C20C900444F89 /* Controller */,
@@ -121,8 +131,6 @@
 		55CD76F9240C230200444F89 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				5562D72F240A4BD3007A5781 /* AppDelegate.swift */,
-				5562D731240A4BD3007A5781 /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
