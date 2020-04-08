@@ -10,28 +10,22 @@ class ShoppingListTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addItem" {
-            if shopping.shoppingList.count < shopping.maximumNumberOfItems {
-                guard let productVC = segue.destination as? ProductViewController else { return }
-                present(productVC, animated: true)
-            } else {
-                let alert = UIAlertController(title: "Сan't add a product",
-                                              message: "You can add no more than \(shopping.maximumNumberOfItems) products",
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(alert, animated: true, completion: nil)
-            }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard identifier == "addItem", shopping.shoppingList.count < shopping.maximumNumberOfItems else {
+            let alert = UIAlertController(title: "Сan't add a product",
+                                          message: "You can add no more than \(shopping.maximumNumberOfItems) products",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return false
         }
+        return true
     }
     
     @IBAction func unwindToShoppingList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ProductViewController, let product = sourceViewController.product {
-            
-            let newIndexPath = IndexPath(row: shopping.shoppingList.count, section: 0)
-            
             if shopping.add(product) {
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
+                tableView.reloadData()
             }
         }
     }
