@@ -40,7 +40,7 @@ extension ShoppingListTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListTableViewCell", for: indexPath) as? ShoppingListTableViewCell
             else {
-                fatalError("The dequeued cell is not an instance of ShoppingListTableViewCell.")
+                return UITableViewCell()
         }
         
         cell.itemNameLabel.text = shopping.shoppingList[indexPath.row]
