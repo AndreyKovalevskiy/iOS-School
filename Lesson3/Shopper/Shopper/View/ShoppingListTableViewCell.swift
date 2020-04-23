@@ -2,5 +2,5 @@ import UIKit
 
 class ShoppingListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
 }
